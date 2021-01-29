@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="styles/bootstrap.min.css" />
+		<link rel="stylesheet" href="styles/index.css" />
+		<title>Memory Game</title>
+	</head>
+	<body>
+		<main>
+			<div id="main-content">
+				<div id="form-container">
+					<div class="row">
+						<div class="list-group col-5">
+							<div class="list-group-item">Number of Cards</div>
+							<div
+								class="list-group-item list-group-item-action numCardsToShow"
+							>
+								5 (Just for Testing)
+							</div>
+							<div
+								class="list-group-item active list-group-item-action numCardsToShow"
+							>
+								26 (Half Deck)
+							</div>
+							<div
+								class="list-group-item list-group-item-action numCardsToShow"
+							>
+								52 (Full Deck)
+							</div>
+							<div
+								class="list-group-item list-group-item-action numCardsToShow"
+							>
+								104 (2x Full Deck)
+							</div>
+							<div
+								class="list-group-item list-group-item-action numCardsToShow"
+							>
+								156 (3x Full Deck)
+							</div>
+							<div
+								class="list-group-item list-group-item-action numCardsToShow"
+							>
+								208 (4x Full Deck)
+							</div>
+						</div>
+						<div class="col-2"></div>
+						<div class="list-group col-5">
+							<div class="list-group-item">Seconds Per Card</div>
+							<div
+								class="list-group-item list-group-item-action secsForEachCard"
+							>
+								0.25
+							</div>
+							<div
+								class="list-group-item list-group-item-action secsForEachCard"
+							>
+								0.5
+							</div>
+							<div
+								class="list-group-item active list-group-item-action secsForEachCard"
+							>
+								1
+							</div>
+							<div
+								class="list-group-item list-group-item-action secsForEachCard"
+							>
+								2
+							</div>
+							<div
+								class="list-group-item list-group-item-action secsForEachCard"
+							>
+								3
+							</div>
+						</div>
+					</div>
+
+					<div
+						style="
+							display: flex;
+							justify-content: center;
+							align-items: center;
+							margin-top: 3rem;
+						"
+					>
+						<button id="start-game" class="btn btn-lg">Start Game</button>
+					</div>
+
+					<div>
+						<p id="game-info" class="text-lg text-info mt-5">
+							Total of
+							<span id="numCardsSpan" class="text-success">26 cards</span>
+							will be shown <br />
+							Each card will be shown for
+							<span id="numSecondsSpan" class="text-success">1 second</span>
+						</p>
+
+						<p class="text-center">
+							<span class="text-danger">WARNING</span> <br />
+							Proceed with caution. The rapid viewing of images may cause
+							seizures, shocks, headaches, or pose other unknown health
+							risks, even for healthy individuals and those without a known
+							health condition. Multiple and repeated use, especially in one
+							day, is not advised without consulting a health professional.
+							By clicking the "Start Game" button, you hold the developers
+							blameless and exempt from any liability.
+						</p>
+					</div>
+				</div>
+
+				<div id="game-container">
+					<div id="timer">
+						<span id="minutes" class="text-primary"></span>
+						<span id="seconds" class="text-primary"></span>
+					</div>
+
+					<div id="card-display">
+						<img class="single-img" />
+						<div class="card-img" number="0"><img src="images/0.jpg" /></div>
+						<div class="card-img" number="1"><img src="images/1.jpg" /></div>
+						<div class="card-img" number="2"><img src="images/2.jpg" /></div>
+						<div class="card-img" number="3"><img src="images/3.jpg" /></div>
+						<div class="card-img" number="4"><img src="images/4.jpg" /></div>
+						<div class="card-img" number="5"><img src="images/5.jpg" /></div>
+						<div class="card-img" number="6"><img src="images/6.jpg" /></div>
+						<div class="card-img" number="7"><img src="images/7.jpg" /></div>
+						<div class="card-img" number="8"><img src="images/8.jpg" /></div>
+						<div class="card-img" number="9"><img src="images/9.jpg" /></div>
+						<div class="card-img" number="10">
+							<img src="images/10.jpg" />
+						</div>
+						<div class="card-img" number="11">
+							<img src="images/11.jpg" />
+						</div>
+						<div class="card-img" number="12">
+							<img src="images/12.jpg" />
+						</div>
+						<div class="card-img" number="13">
+							<img src="images/13.jpg" />
+						</div>
+						<div class="card-img" number="14">
+							<img src="images/14.jpg" />
+						</div>
+						<div class="card-img" number="15">
+							<img src="images/15.jpg" />
+						</div>
+						<div class="card-img" number="16">
+							<img src="images/16.jpg" />
+						</div>
+						<div class="card-img" number="17">
+							<img src="images/17.jpg" />
+						</div>
+						<div class="card-img" number="18">
+							<img src="images/18.jpg" />
+						</div>
+						<div class="card-img" number="19">
+							<img src="images/19.jpg" />
+						</div>
+						<div class="card-img" number="20">
+							<img src="images/20.jpg" />
+						</div>
+						<div class="card-img" number="21">
+							<img src="images/21.jpg" />
+						</div>
+						<div class="card-img" number="22">
+							<img src="images/22.jpg" />
+						</div>
+						<div class="card-img" number="23">
+							<img src="images/23.jpg" />
+						</div>
+						<div class="card-img" number="24">
+							<img src="images/24.jpg" />
+						</div>
+						<div class="card-img" number="25">
+							<img src="images/25.jpg" />
+						</div>
+						<div class="card-img" number="26">
+							<img src="images/26.jpg" />
+						</div>
+						<div class="card-img" number="27">
+							<img src="images/27.jpg" />
+						</div>
+						<div class="card-img" number="28">
+							<img src="images/28.jpg" />
+						</div>
+						<div class="card-img" number="29">
+							<img src="images/29.jpg" />
+						</div>
+						<div class="card-img" number="30">
+							<img src="images/30.jpg" />
+						</div>
+						<div class="card-img" number="31">
+							<img src="images/31.jpg" />
+						</div>
+						<div class="card-img" number="32">
+							<img src="images/32.jpg" />
+						</div>
+						<div class="card-img" number="33">
+							<img src="images/33.jpg" />
+						</div>
+						<div class="card-img" number="34">
+							<img src="images/34.jpg" />
+						</div>
+						<div class="card-img" number="35">
+							<img src="images/35.jpg" />
+						</div>
+						<div class="card-img" number="36">
+							<img src="images/36.jpg" />
+						</div>
+						<div class="card-img" number="37">
+							<img src="images/37.jpg" />
+						</div>
+						<div class="card-img" number="38">
+							<img src="images/38.jpg" />
+						</div>
+						<div class="card-img" number="39">
+							<img src="images/39.jpg" />
+						</div>
+						<div class="card-img" number="40">
+							<img src="images/40.jpg" />
+						</div>
+						<div class="card-img" number="41">
+							<img src="images/41.jpg" />
+						</div>
+						<div class="card-img" number="42">
+							<img src="images/42.jpg" />
+						</div>
+						<div class="card-img" number="43">
+							<img src="images/43.jpg" />
+						</div>
+						<div class="card-img" number="44">
+							<img src="images/44.jpg" />
+						</div>
+						<div class="card-img" number="45">
+							<img src="images/45.jpg" />
+						</div>
+						<div class="card-img" number="46">
+							<img src="images/46.jpg" />
+						</div>
+						<div class="card-img" number="47">
+							<img src="images/47.jpg" />
+						</div>
+						<div class="card-img" number="48">
+							<img src="images/48.jpg" />
+						</div>
+						<div class="card-img" number="49">
+							<img src="images/49.jpg" />
+						</div>
+						<div class="card-img" number="50">
+							<img src="images/50.jpg" />
+						</div>
+						<div class="card-img" number="51">
+							<img src="images/51.jpg" />
+						</div>
+					</div>
+
+					<table class="table table-dark" id="statsTable">
+						<thead>
+							<tr>
+								<th scope="col">#</th>
+								<th scope="col">Stat</th>
+								<th scope="col">Your Response</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr id="scoreTableRow">
+								<th scope="row">1</th>
+								<td>Your Score</td>
+								<td id="score"></td>
+							</tr>
+							<tr id="timeTakenRow" class="bg-primary">
+								<th scope="row">2</th>
+								<td>Time Taken</td>
+								<td id="timeTaken"></td>
+							</tr>
+							<!-- <tr class="bg-success">
+								<th scope="row">3</th>
+								<td>Correctly Chosen</td>
+								<td id="correctlyChosen"></td>
+							</tr>
+							<tr class="bg-danger">
+								<th scope="row">4</th>
+								<td>Incorrectly Chosen</td>
+								<td id="incorrectlyChosen"></td>
+							</tr> -->
+							<!-- <tr class="bg-primary">
+								<th scope="row">5</th>
+								<td>Original Order</td>
+								<td id="originalOrder"></td>
+							</tr> -->
+							<tr>
+								<th scope="row">3</th>
+								<td>Your Chosen Order</td>
+								<td id="yourChosenOrder"></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</main>
+
+		<script src="js/constants.js"></script>
+		<script src="js/checkmark.js"></script>
+		<script src="js/game.js"></script>
+		<script src="js/helpers.js"></script>
+		<script src="js/main.js"></script>
+	</body>
+</html>
