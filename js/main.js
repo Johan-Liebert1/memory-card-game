@@ -100,3 +100,13 @@ startGameButton.addEventListener("click", startGame);
 
 numCardsList.forEach(card => card.addEventListener("click", numCardsListener));
 numSecondsList.forEach(card => card.addEventListener("click", numSecondsListener));
+
+document.getElementById("fullScreen").addEventListener("click", () => {
+	if (document.body.requestFullscreen) {
+		document.body.requestFullscreen();
+	} else if (document.body.mozRequestFullScreen) {
+		document.body.mozRequestFullScreen();
+	} else if (document.body.webkitRequestFullScreen) {
+		document.body.webkitRequestFullScreen();
+	}
+});

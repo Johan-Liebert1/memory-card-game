@@ -84,7 +84,13 @@
 							margin-top: 3rem;
 						"
 					>
-						<button id="start-game" class="btn btn-lg">Start Game</button>
+						<button id="start-game" class="btn btn-lg mr-5">
+							Start Game
+						</button>
+
+						<button id="fullScreen" class="btn btn-info btn-lg">
+							Full Screen
+						</button>
 					</div>
 
 					<div>
@@ -259,39 +265,24 @@
 						<thead>
 							<tr>
 								<th scope="col">#</th>
-								<th scope="col">Stat</th>
-								<th scope="col">Your Response</th>
+								<th scope="col">Stats</th>
+								<th scope="col">Response</th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr id="scoreTableRow">
 								<th scope="row">1</th>
-								<td>Your Score</td>
+								<td>Score</td>
 								<td id="score"></td>
 							</tr>
 							<tr id="timeTakenRow" class="bg-primary">
 								<th scope="row">2</th>
-								<td>Time Taken</td>
+								<td>Time</td>
 								<td id="timeTaken"></td>
 							</tr>
-							<!-- <tr class="bg-success">
-								<th scope="row">3</th>
-								<td>Correctly Chosen</td>
-								<td id="correctlyChosen"></td>
-							</tr>
-							<tr class="bg-danger">
-								<th scope="row">4</th>
-								<td>Incorrectly Chosen</td>
-								<td id="incorrectlyChosen"></td>
-							</tr> -->
-							<!-- <tr class="bg-primary">
-								<th scope="row">5</th>
-								<td>Original Order</td>
-								<td id="originalOrder"></td>
-							</tr> -->
 							<tr>
 								<th scope="row">3</th>
-								<td>Your Chosen Order</td>
+								<td>Order</td>
 								<td id="yourChosenOrder"></td>
 							</tr>
 						</tbody>
