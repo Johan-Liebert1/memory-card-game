@@ -15,6 +15,7 @@ const showTryAgainButton = () => {
 	buttonContainer.style.display = "flex";
 	buttonContainer.style.height = "100%";
 	buttonContainer.style.width = "100%";
+	newGame();
 };
 
 const getDeckName = num => numToDeckName[Math.floor(num / 13)];
@@ -92,11 +93,6 @@ const playerIsChoosingTheSequence = e => {
 		parentDiv.innerHTML += wrongHtml;
 	}
 
-	// fade out the checkmark
-	// document
-	// 	.querySelector(".checkmark-container")
-	// 	.classList.add("checkmark-container-fade");
-
 	if (playersChosenSequence.length === randomCardNumbers.length) {
 		calculatePlayerScore();
 		stopTimer();
@@ -105,10 +101,10 @@ const playerIsChoosingTheSequence = e => {
 
 const letPlayerChooseSequence = () => {
 	document.querySelector(".single-img").style.display = "none";
+	document.getElementById("timer").style.display = "block";
 	allImages.forEach(image => {
 		image.className = "card-img-view";
 		image.addEventListener("click", playerIsChoosingTheSequence);
-		// image.innerHTML += checkmarkHtml;
 	});
 
 	startTimer();

@@ -1,26 +1,51 @@
-const cardsDiv = document.getElementById("card-display");
-const allImages = document.querySelectorAll(".card-img");
-const numCardsList = document.querySelector("#numCardsToShow");
-const numSecondsList = document.querySelector("#secsForEachCard");
-const startGameButton = document.getElementById("start-game");
+let cardsDiv;
+let allImages;
+let numCardsList;
+let numSecondsList;
+let startGameButton;
 
-const numCardsSpan = document.getElementById("numCardsSpan");
-const numSecondsSpan = document.getElementById("numSecondsSpan");
+let numCardsSpan;
+let numSecondsSpan;
 
-const formContainer = document.getElementById("form-container");
-const gameContainer = document.getElementById("game-container");
+let formContainer;
+let gameContainer;
 
-let numberOfCardsToShow = 5,
-	secondsToDisplayEachImageFor = 0.25;
-let score = 0;
-let currentCardIndex = 0;
-let isCardDisplayOver = false;
-let playersChosenSequence = [];
+let numberOfCardsToShow;
+let secondsToDisplayEachImageFor;
+let score;
+let currentCardIndex;
+let isCardDisplayOver;
+let playersChosenSequence;
 let timerInterval;
-let minutes = 0,
-	seconds = 0;
+let minutes, seconds;
 let cardIntervalId;
 let randomCardNumbers;
+
+const newGame = () => {
+	cardsDiv = document.getElementById("card-display");
+	allImages = document.querySelectorAll(".card-img");
+	numCardsList = document.querySelector("#numCardsToShow");
+	numSecondsList = document.querySelector("#secsForEachCard");
+	startGameButton = document.getElementById("start-game");
+
+	numCardsSpan = document.getElementById("numCardsSpan");
+	numSecondsSpan = document.getElementById("numSecondsSpan");
+
+	formContainer = document.getElementById("form-container");
+	gameContainer = document.getElementById("game-container");
+
+	numberOfCardsToShow = 5;
+	secondsToDisplayEachImageFor = 0.25;
+	score = 0;
+	currentCardIndex = 0;
+	isCardDisplayOver = false;
+	playersChosenSequence = [];
+	timerInterval;
+	minutes = 0;
+	seconds = 0;
+};
+
+newGame();
 
 const stopTimer = () => {
 	clearInterval(timerInterval);
@@ -94,9 +119,30 @@ const numSecondsListener = e => {
 startGameButton.addEventListener("click", startGame);
 numCardsList.addEventListener("click", numCardsListener);
 numSecondsList.addEventListener("click", numSecondsListener);
+
 document.getElementById("tryAgainButton").addEventListener("click", () => {
 	gameContainer.style.display = "none";
 	formContainer.style.display = "flex";
+	document.getElementById("tryAgainButton").style.display = "none";
+	document.getElementById("statsTable").style.display = "none";
+	document.getElementById("timer").style.display = "none";
+
+	const singleImg = document.querySelector(".single-img");
+	singleImg.removeAttribute("number");
+	singleImg.removeAttribute("src");
+	singleImg.style.display = "inline";
+
+	document.querySelectorAll(".card-img-view").forEach(civ => {
+		civ.className = "card-img";
+
+		let checkmarkContainer = civ.querySelectorAll(".checkmark-container");
+
+		if (checkmarkContainer.length > 0) {
+			checkmarkContainer.forEach(cc => cc.remove());
+		}
+	});
+
+	newGame();
 });
 
 document.getElementById("fullScreen").addEventListener("click", () => {
