@@ -10,6 +10,13 @@ const getTableRowColor = fraction => {
 	}
 };
 
+const showTryAgainButton = () => {
+	const buttonContainer = document.getElementById("tryAgainButton");
+	buttonContainer.style.display = "flex";
+	buttonContainer.style.height = "100%";
+	buttonContainer.style.width = "100%";
+};
+
 const getDeckName = num => numToDeckName[Math.floor(num / 13)];
 const getCardValue = num => numToCardVal[num % 13];
 
@@ -49,15 +56,6 @@ const calculatePlayerScore = () => {
 		"timeTaken"
 	).innerText = `${minutes} minutes(s) ${seconds} seconds`;
 
-	// document.getElementById("correctlyChosen").innerText = `${correctlyChosen.join(
-	// 	", "
-	// )}`;
-	// document.getElementById("incorrectlyChosen").innerText = `${incorrectlyChosen.join(
-	// 	", "
-	// )}`;
-
-	// document.getElementById("originalOrder").innerText = `${originalOrder.join(" --> ")}`;
-
 	let playersOrderHtml = "";
 
 	for (let i = 0; i < playersOrder.length; i++) {
@@ -71,10 +69,12 @@ const calculatePlayerScore = () => {
 
 		let toAdd = i === playersOrder.length - 1 ? "" : " --> ";
 
-		playersOrderHtml += `<span style = "color: ${color}">${playersOrder[i]}</span><span>${toAdd}</span>`;
+		playersOrderHtml += `<span style = "color: ${color}">${originalOrder[i]}</span><span>${toAdd}</span>`;
 	}
 
 	document.getElementById("yourChosenOrder").innerHTML = playersOrderHtml;
+
+	showTryAgainButton();
 };
 
 const playerIsChoosingTheSequence = e => {

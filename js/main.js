@@ -1,7 +1,7 @@
 const cardsDiv = document.getElementById("card-display");
 const allImages = document.querySelectorAll(".card-img");
-const numCardsList = document.querySelectorAll(".numCardsToShow");
-const numSecondsList = document.querySelectorAll(".secsForEachCard");
+const numCardsList = document.querySelector("#numCardsToShow");
+const numSecondsList = document.querySelector("#secsForEachCard");
 const startGameButton = document.getElementById("start-game");
 
 const numCardsSpan = document.getElementById("numCardsSpan");
@@ -10,8 +10,8 @@ const numSecondsSpan = document.getElementById("numSecondsSpan");
 const formContainer = document.getElementById("form-container");
 const gameContainer = document.getElementById("game-container");
 
-let numberOfCardsToShow = 26,
-	secondsToDisplayEachImageFor = 1;
+let numberOfCardsToShow = 5,
+	secondsToDisplayEachImageFor = 0.25;
 let score = 0;
 let currentCardIndex = 0;
 let isCardDisplayOver = false;
@@ -79,17 +79,12 @@ const startGame = e => {
 };
 
 const numCardsListener = e => {
-	numberOfCardsToShow = Number(e.target.innerText.split(" ")[0]);
-
-	numCardsList.forEach(card => card.classList.remove("active"));
-	e.target.classList.add("active");
+	numberOfCardsToShow = Number(e.target.value.split(" ")[0]);
 	numCardsSpan.innerText = `${numberOfCardsToShow} cards`;
 };
 
 const numSecondsListener = e => {
-	secondsToDisplayEachImageFor = Number(e.target.innerText);
-	numSecondsList.forEach(card => card.classList.remove("active"));
-	e.target.classList.add("active");
+	secondsToDisplayEachImageFor = Number(e.target.value);
 	let toAdd = secondsToDisplayEachImageFor === 1 ? "" : "s";
 	numSecondsSpan.innerText = `${secondsToDisplayEachImageFor} second${toAdd}`;
 };
@@ -97,9 +92,12 @@ const numSecondsListener = e => {
 // Event Listeners
 
 startGameButton.addEventListener("click", startGame);
-
-numCardsList.forEach(card => card.addEventListener("click", numCardsListener));
-numSecondsList.forEach(card => card.addEventListener("click", numSecondsListener));
+numCardsList.addEventListener("click", numCardsListener);
+numSecondsList.addEventListener("click", numSecondsListener);
+document.getElementById("tryAgainButton").addEventListener("click", () => {
+	gameContainer.style.display = "none";
+	formContainer.style.display = "flex";
+});
 
 document.getElementById("fullScreen").addEventListener("click", () => {
 	if (document.body.requestFullscreen) {

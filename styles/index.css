@@ -45,6 +45,20 @@ body:-moz-full-screen {
 	flex-wrap: wrap;
 	justify-content: space-between;
 	align-items: center;
+	position: relative;
+}
+
+#tryAgainButton {
+	width: 0;
+	height: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	display: none;
+	z-index: 10;
 }
 
 .final-card-show {
@@ -146,10 +160,6 @@ small {
 	text-align: center;
 }
 
-.list-group-item-action {
-	cursor: pointer;
-}
-
 #statsTable {
 	display: none;
 }
@@ -163,13 +173,3 @@ small {
 		opacity: 1;
 	}
 }
-
-/* @keyframes fadeOut {
-	from {
-		opacity: 1;
-	}
-
-	to {
-		opacity: 0;
-	}
-} */

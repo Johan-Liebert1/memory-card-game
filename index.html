@@ -12,67 +12,28 @@
 			<div id="main-content">
 				<div id="form-container">
 					<div class="row">
-						<div class="list-group col-5">
-							<div class="list-group-item">Number of Cards</div>
-							<div
-								class="list-group-item list-group-item-action numCardsToShow"
-							>
-								5 (Just for Testing)
-							</div>
-							<div
-								class="list-group-item active list-group-item-action numCardsToShow"
-							>
-								26 (Half Deck)
-							</div>
-							<div
-								class="list-group-item list-group-item-action numCardsToShow"
-							>
-								52 (Full Deck)
-							</div>
-							<div
-								class="list-group-item list-group-item-action numCardsToShow"
-							>
-								104 (2x Full Deck)
-							</div>
-							<div
-								class="list-group-item list-group-item-action numCardsToShow"
-							>
-								156 (3x Full Deck)
-							</div>
-							<div
-								class="list-group-item list-group-item-action numCardsToShow"
-							>
-								208 (4x Full Deck)
-							</div>
+						<div class="col-5">
+							<label for="numCardsToShow"></label>
+							<select class="form-control" id="numCardsToShow">
+								<option>5 (Just for Testing)</option>
+								<option>26 (Half Deck)</option>
+								<option>52 (Full Deck)</option>
+								<option>104 (2x Full Deck)</option>
+								<option>156 (3x Full Deck)</option>
+								<option>208 (4x Full Deck)</option>
+							</select>
 						</div>
 						<div class="col-2"></div>
-						<div class="list-group col-5">
-							<div class="list-group-item">Seconds Per Card</div>
-							<div
-								class="list-group-item list-group-item-action secsForEachCard"
-							>
-								0.25
-							</div>
-							<div
-								class="list-group-item list-group-item-action secsForEachCard"
-							>
-								0.5
-							</div>
-							<div
-								class="list-group-item active list-group-item-action secsForEachCard"
-							>
-								1
-							</div>
-							<div
-								class="list-group-item list-group-item-action secsForEachCard"
-							>
-								2
-							</div>
-							<div
-								class="list-group-item list-group-item-action secsForEachCard"
-							>
-								3
-							</div>
+
+						<div class="col-5">
+							<label for="secsForEachCard">Seconds Per Card</label>
+							<select class="form-control" id="secsForEachCard">
+								<option>0.25</option>
+								<option>0.5</option>
+								<option>1</option>
+								<option>2</option>
+								<option>3</option>
+							</select>
 						</div>
 					</div>
 
@@ -96,10 +57,12 @@
 					<div>
 						<p id="game-info" class="text-lg text-info mt-5">
 							Total of
-							<span id="numCardsSpan" class="text-success">26 cards</span>
+							<span id="numCardsSpan" class="text-success">5 cards</span>
 							will be shown <br />
 							Each card will be shown for
-							<span id="numSecondsSpan" class="text-success">1 second</span>
+							<span id="numSecondsSpan" class="text-success"
+								>0.25 seconds</span
+							>
 						</p>
 
 						<p class="text-center">
@@ -122,6 +85,9 @@
 					</div>
 
 					<div id="card-display">
+						<div id="tryAgainButton">
+							<button class="btn btn-lg btn-success">Try Again</button>
+						</div>
 						<img class="single-img" />
 						<div class="card-img" number="0"><img src="images/0.jpg" /></div>
 						<div class="card-img" number="1"><img src="images/1.jpg" /></div>
@@ -264,24 +230,20 @@
 					<table class="table table-dark" id="statsTable">
 						<thead>
 							<tr>
-								<th scope="col">#</th>
 								<th scope="col">Stats</th>
 								<th scope="col">Response</th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr id="scoreTableRow">
-								<th scope="row">1</th>
 								<td>Score</td>
 								<td id="score"></td>
 							</tr>
 							<tr id="timeTakenRow" class="bg-primary">
-								<th scope="row">2</th>
 								<td>Time</td>
 								<td id="timeTaken"></td>
 							</tr>
 							<tr>
-								<th scope="row">3</th>
 								<td>Order</td>
 								<td id="yourChosenOrder"></td>
 							</tr>
