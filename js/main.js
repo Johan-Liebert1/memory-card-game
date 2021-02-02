@@ -120,7 +120,7 @@ startGameButton.addEventListener("click", startGame);
 numCardsList.addEventListener("click", numCardsListener);
 numSecondsList.addEventListener("click", numSecondsListener);
 
-document.getElementById("tryAgainButton").addEventListener("click", () => {
+document.getElementById("tryAgainButtonButton").addEventListener("click", () => {
 	window.location.reload();
 	newGame();
 });
