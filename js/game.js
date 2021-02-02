@@ -15,7 +15,6 @@ const showTryAgainButton = () => {
 	buttonContainer.style.display = "flex";
 	buttonContainer.style.height = "100%";
 	buttonContainer.style.width = "100%";
-	newGame();
 };
 
 const getDeckName = num => numToDeckName[Math.floor(num / 13)];

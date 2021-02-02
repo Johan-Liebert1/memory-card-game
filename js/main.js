@@ -121,27 +121,7 @@ numCardsList.addEventListener("click", numCardsListener);
 numSecondsList.addEventListener("click", numSecondsListener);
 
 document.getElementById("tryAgainButton").addEventListener("click", () => {
-	gameContainer.style.display = "none";
-	formContainer.style.display = "flex";
-	document.getElementById("tryAgainButton").style.display = "none";
-	document.getElementById("statsTable").style.display = "none";
-	document.getElementById("timer").style.display = "none";
-
-	const singleImg = document.querySelector(".single-img");
-	singleImg.removeAttribute("number");
-	singleImg.removeAttribute("src");
-	singleImg.style.display = "inline";
-
-	document.querySelectorAll(".card-img-view").forEach(civ => {
-		civ.className = "card-img";
-
-		let checkmarkContainer = civ.querySelectorAll(".checkmark-container");
-
-		if (checkmarkContainer.length > 0) {
-			checkmarkContainer.forEach(cc => cc.remove());
-		}
-	});
-
+	window.location.reload();
 	newGame();
 });
 
