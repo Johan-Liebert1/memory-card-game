@@ -12,7 +12,6 @@ const lessThan52 = numberOfCards => {
 			i++;
 		}
 	}
-	console.log(arr);
 	return arr;
 };
 
